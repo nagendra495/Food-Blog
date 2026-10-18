@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login · tasteful</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-logo"><i class="fas fa-utensils"></i><h1>taste<span>ful</span></h1></div>
+    <p class="auth-subtitle">welcome back to the kitchen</p>
+    <div class="auth-title"><i class="fas fa-sign-in-alt"></i> Sign in</div>
+    <form id="loginForm">
+      <div class="form-group"><label>Email address</label><input type="email" id="loginEmail" placeholder="hello@tasteful.com" required></div>
+      <div class="form-group"><label>Password</label><input type="password" id="loginPassword" placeholder="••••••••" required></div>
+      <button type="submit" class="btn btn-primary" id="loginSubmitBtn"><i class="fas fa-arrow-right-to-bracket"></i> Login</button>
+    </form>
+    <div id="loginMessage" class="message"></div>
+    <div class="auth-switch">New here? <a href="register.html">Create an account</a></div>
+  </div>
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+</body>
+</html>
