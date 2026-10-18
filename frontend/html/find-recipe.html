@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Recipe · tasteful</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/blog.css">
+  <link rel="stylesheet" href="../css/find-recipe.css">
+</head>
+<body>
+  <div class="app-wrapper">
+    <header class="blog-header">
+      <div class="logo-area"><i class="fas fa-utensils logo-icon"></i><div class="logo-text">taste<span>ful</span></div></div>
+      <div class="auth-area" id="authArea"></div>
+    </header>
+    <nav class="blog-nav">
+      <a href="blog.html" class="nav-link"><i class="fas fa-book-open"></i> All Recipes</a>
+      <a href="find-recipe.html" class="nav-link active"><i class="fas fa-search"></i> Find by Ingredients</a>
+    </nav>
+    <section class="ingredient-section">
+      <h2><i class="fas fa-carrot"></i> What's in your kitchen?</h2>
+      <p class="ingredient-sub">Enter ingredients (comma separated) — we'll find the perfect recipes.</p>
+      <form id="ingredientForm" class="ingredient-form">
+        <input type="text" id="ingredientInput" placeholder="e.g. tomato, pasta, garlic" autocomplete="off">
+        <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-magic"></i> Find Recipes</button>
+      </form>
+      <div class="quick-tags">
+        <span class="tag-label">Try:</span>
+        <button type="button" class="quick-tag" data-ing="tomato, mozzarella, basil">🍕 Margherita</button>
+        <button type="button" class="quick-tag" data-ing="pasta, garlic, olive oil">🍝 Aglio e Olio</button>
+        <button type="button" class="quick-tag" data-ing="avocado, bread, egg">🥑 Avocado Toast</button>
+        <button type="button" class="quick-tag" data-ing="chocolate, butter, egg">🍫 Lava Cake</button>
+      </div>
+    </section>
+    <section class="results-section">
+      <div id="resultsMessage" class="message"></div>
+      <div id="resultsGrid" class="recipe-grid"></div>
+    </section>
+    <footer class="blog-footer"><i class="fas fa-crown"></i> tasteful · where recipes meet stories</footer>
+  </div>
+
+  <div id="feedbackModal" class="modal-overlay">
+    <div class="modal">
+      <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+      <h3 id="modalRecipeTitle">Recipe</h3>
+      <p class="modal-sub">How was it?</p>
+      <div class="stars" id="stars">
+        <i class="far fa-star" data-star="1"></i><i class="far fa-star" data-star="2"></i><i class="far fa-star" data-star="3"></i><i class="far fa-star" data-star="4"></i><i class="far fa-star" data-star="5"></i>
+      </div>
+      <textarea id="feedbackComment" placeholder="Share your thoughts (optional)" rows="3"></textarea>
+      <button class="btn btn-primary" id="submitFeedbackBtn"><i class="fas fa-paper-plane"></i> Submit Feedback</button>
+      <div id="feedbackMessage" class="message"></div>
+      <div class="feedback-list-wrap">
+        <h4><i class="fas fa-comments"></i> What others say</h4>
+        <div id="feedbackList" class="feedback-list"><p class="empty-feedback">No feedback yet. Be the first!</p></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/find-recipe.js"></script>
+</body>
+</html>
