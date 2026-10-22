@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:3000/api';
+const API_BASE = '/api';
 const SESSION_KEY = 'tasteful_session';
 
 function getSession() {

@@ -1,0 +1,49 @@
+services:
+  database:
+    container_name: database
+    build: ./database
+    env_file:
+      - ./database/.env
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - backend-db-network
+
+  backend:
+    container_name: Backend
+    build: ./backend
+    environment:
+      PORT: 3000
+      DB_HOST: database
+      DB_USER: root
+      DB_PASSWORD: rootpass123
+      DB_NAME: tasteful_blog
+      CORS_ORIGIN: http://localhost:1111
+    ports:
+      - "2222:3000"
+    networks:
+      - frontend-backend-network
+      - backend-db-network
+    depends_on:
+      database:
+        condition: service_started
+
+  frontend:
+    container_name: Frontend
+    build: ./frontend
+    ports:
+      - "1111:80"
+    networks:
+      - frontend-backend-network
+    depends_on:
+      backend:
+        condition: service_started
+
+volumes:
+  db_data:
+
+networks:
+  frontend-backend-network:
+    driver: bridge
+  backend-db-network:
+    driver: bridge
